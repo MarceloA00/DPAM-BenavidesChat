@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/my_primary"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="10dp"
+            android:text="@string/ChatHeader"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_above="@id/bottom_layout"
+        android:paddingTop="20dp"
+        android:clipToPadding="true"
+        android:id="@+id/chat_recycler_view"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:padding="8dp"
+        android:background="@color/my_primary"
+        android:id="@+id/bottom_layout">
+
+        <RelativeLayout
+            android:id="@+id/text_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/message_input"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_margin="10dp"
+                android:layout_toStartOf="@id/message_send_btn"
+                android:background="@drawable/rounded_corner"
+                android:elevation="4dp"
+                android:hint="@string/messageBoxHint"
+                android:textColorHint="@color/black"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                tools:ignore="Autofill,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+
+            <ImageButton
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/icon_send"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/sendBtnDescription"
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/my_secondary"
+                android:padding="8dp"
+                android:layout_marginStart="10dp"
+                android:id="@+id/message_send_btn"
+                app:tint="@color/my_primary"/>
+
+        </RelativeLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/choice_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:flexWrap="wrap"
+            app:justifyContent="space_evenly"
+            app:alignItems="center"  />
+
+    </RelativeLayout>
+
+</RelativeLayout>
